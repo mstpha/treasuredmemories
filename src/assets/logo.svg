@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Map base with subtle glow effect -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Map base -->
+  <rect x="50" y="50" width="300" height="300" 
+        fill="#1a1a2e" 
+        stroke="#4361ee" 
+        stroke-width="2"
+        rx="15"/>
+  
+  <!-- Map contour lines -->
+  <path d="M100 100 Q200 120 300 100 T300 200 T100 300" 
+        fill="none" 
+        stroke="#4361ee" 
+        stroke-width="1.5" 
+        stroke-dasharray="4,4"
+        opacity="0.2"/>
+  
+  <!-- Main memory pin -->
+  <g transform="translate(200 180)" filter="url(#glow)">
+    <path d="M0 0 L-12 -35 A35 35 0 1 1 12 -35 Z" 
+          fill="#e63946"/>
+    <!-- Camera lens inside pin -->
+    <circle cx="0" cy="-50" r="18" 
+            fill="#1a1a2e" 
+            stroke="#e63946" 
+            stroke-width="2"/>
+    <circle cx="0" cy="-50" r="13" 
+            fill="none" 
+            stroke="#e63946" 
+            stroke-width="1"/>
+  </g>
+  
+  <!-- Secondary memory pins with glow -->
+  <g opacity="0.8" filter="url(#glow)">
+    <circle cx="120" cy="140" r="5" fill="#e63946"/>
+    <circle cx="280" cy="220" r="5" fill="#e63946"/>
+    <circle cx="180" cy="280" r="5" fill="#e63946"/>
+  </g>
+  
+  <!-- Connecting lines between pins -->
+  <path d="M120 140 Q200 180 280 220" 
+        fill="none" 
+        stroke="#4361ee" 
+        stroke-width="1" 
+        stroke-dasharray="3,3"
+        opacity="0.2"/>
+  <path d="M280 220 Q230 250 180 280" 
+        fill="none" 
+        stroke="#4361ee" 
+        stroke-width="1" 
+        stroke-dasharray="3,3"
+        opacity="0.2"/>
+</svg>
